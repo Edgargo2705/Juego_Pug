@@ -43,6 +43,8 @@ public class HelloController implements Observer{
     private Button btnEmpezar;
     @FXML
     private Button btnSalir;
+    @FXML
+    private Label game_over;
 
 
     @FXML
@@ -196,6 +198,11 @@ public class HelloController implements Observer{
 
             this.basura.setEstado(false);
             this.imgbasura.setVisible(false);
+            agua.setEstado(false);
+            comida.setEstado(false);
+            basura.setEstado(false);
+            game_over.setVisible(true);
+            mover=false;
 
             if (!basura.isEstado()) {
                 int vecX = random.nextInt(622);
@@ -210,4 +217,3 @@ public class HelloController implements Observer{
         }
     }
 }
-

@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#characterOnKeyPressed" prefHeight="318.0" prefWidth="622.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.juego_pug.controllers.HelloController">
    <children>
@@ -36,8 +38,13 @@
       </ImageView>
       <ImageView fx:id="imgbasura" fitHeight="65.0" fitWidth="57.0" layoutX="358.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../assets/lmages/Mi%20proyecto.png" />
+            <Image url="@../../../assets/lmages/basura.png" />
          </image>
       </ImageView>
+      <Label fx:id="game_over" layoutX="85.0" layoutY="127.0" text="¡Se acabó el juego!" textFill="WHITE" visible="false">
+         <font>
+            <Font name="System Bold" size="53.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
