@@ -25,6 +25,8 @@ public class HelloController implements Observer{
     private Comida croqueta;
 
     private Agua agua;
+
+    private Basura basura;
     @FXML
     private ImageView imgFood;
     @FXML
@@ -34,6 +36,9 @@ public class HelloController implements Observer{
 
     @FXML
     private ImageView imgagua;
+
+    @FXML
+    private ImageView imgbasura;
     @FXML
     private Button btnEmpezar;
     @FXML
@@ -60,6 +65,13 @@ public class HelloController implements Observer{
         agua.set_position(new Vector(1,396,154));
         agua.addObserver(this);
         new Thread(agua).start();
+
+        mover = true;
+
+        basura = new Basura();
+        basura.set_position(new Vector(1,396,154));
+        basura.addObserver(this);
+        new Thread(basura).start();
 
         mover = true;
 
@@ -178,5 +190,24 @@ public class HelloController implements Observer{
                 imgagua.setLayoutY(vecY);
             }
         }
+
+        if(imgPug.getBoundsInParent().intersects(imgbasura.getBoundsInParent())) {
+            System.out.println("Pug comio basura y se enfermo");
+
+            this.basura.setEstado(false);
+            this.imgbasura.setVisible(false);
+
+            if (!basura.isEstado()) {
+                int vecX = random.nextInt(622);
+                int vecY = random.nextInt(300);
+
+                this.basura.setEstado(true);
+                basura.set_position(new Vector(1, vecX, vecY));
+                this.imgbasura.setVisible(true);
+                imgbasura.setLayoutX(vecX);
+                imgbasura.setLayoutY(vecY);
+            }
+        }
     }
 }
+

@@ -12,7 +12,7 @@
             <Image url="@../../../assets/lmages/Jardin_fondo.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="imgFood" fitHeight="22.0" fitWidth="38.0" layoutX="396.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgFood" fitHeight="22.0" fitWidth="38.0" layoutX="435.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../assets/lmages/hueso.png" />
          </image>
@@ -24,7 +24,7 @@
       </ImageView>
       <Button fx:id="btnEmpezar" layoutX="192.0" layoutY="284.0" mnemonicParsing="false" onMouseClicked="#empezarOnMouseClicked" text="Empezar" />
       <Button fx:id="btnSalir" layoutX="289.0" layoutY="284.0" mnemonicParsing="false" onMouseClicked="#salirOnMouseClicked" prefHeight="18.0" prefWidth="62.0" text="Salir" />
-      <ImageView fx:id="imgcomida" fitHeight="50.0" fitWidth="62.0" layoutX="89.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgcomida" fitHeight="50.0" fitWidth="62.0" layoutX="73.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../assets/lmages/Comida.png" />
          </image>
@@ -32,6 +32,11 @@
       <ImageView fx:id="imgagua" fitHeight="50.0" fitWidth="57.0" layoutX="254.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../assets/lmages/agua.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgbasura" fitHeight="65.0" fitWidth="57.0" layoutX="358.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../assets/lmages/Mi%20proyecto.png" />
          </image>
       </ImageView>
    </children>
