@@ -29,5 +29,10 @@
             <Image url="@../../../assets/lmages/Comida.png" />
          </image>
       </ImageView>
+      <ImageView fx:id="imgagua" fitHeight="50.0" fitWidth="57.0" layoutX="254.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../assets/lmages/agua.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

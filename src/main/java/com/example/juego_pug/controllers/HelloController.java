@@ -1,9 +1,6 @@
 package com.example.juego_pug.controllers;
 
-import com.example.juego_pug.models.Comida;
-import com.example.juego_pug.models.Hueso;
-import com.example.juego_pug.models.Perro;
-import com.example.juego_pug.models.Vector;
+import com.example.juego_pug.models.*;
 import javafx.animation.FadeTransition;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -26,12 +23,17 @@ public class HelloController implements Observer{
     private Hueso comida;
 
     private Comida croqueta;
+
+    private Agua agua;
     @FXML
     private ImageView imgFood;
     @FXML
     private ImageView imgPug;
     @FXML
     private ImageView imgcomida;
+
+    @FXML
+    private ImageView imgagua;
     @FXML
     private Button btnEmpezar;
     @FXML
@@ -51,6 +53,13 @@ public class HelloController implements Observer{
         croqueta.set_position(new Vector(1,396,154));
         croqueta.addObserver(this);
         new Thread(croqueta).start();
+
+        mover = true;
+
+        agua = new Agua();
+        agua.set_position(new Vector(1,396,154));
+        agua.addObserver(this);
+        new Thread(agua).start();
 
         mover = true;
 
@@ -142,7 +151,7 @@ public class HelloController implements Observer{
 
             if (!croqueta.isEstado()){
                 int vecX = random.nextInt(622);
-                int vecY = random.nextInt(318);
+                int vecY = random.nextInt(300);
 
                 this.croqueta.setEstado(true);
                 croqueta.set_position(new Vector(1,vecX,vecY));
@@ -152,6 +161,22 @@ public class HelloController implements Observer{
             }
         }
 
+        if(imgPug.getBoundsInParent().intersects(imgagua.getBoundsInParent())){
+            System.out.println("Pug tomo agua");
 
+            this.agua.setEstado(false);
+            this.imgagua.setVisible(false);
+
+            if (!agua.isEstado()){
+                int vecX = random.nextInt(622);
+                int vecY = random.nextInt(300);
+
+                this.agua.setEstado(true);
+                agua.set_position(new Vector(1,vecX,vecY));
+                this.imgagua.setVisible(true);
+                imgagua.setLayoutX(vecX);
+                imgagua.setLayoutY(vecY);
+            }
+        }
     }
 }
