@@ -1,5 +1,6 @@
 package com.example.juego_pug.controllers;
 
+import com.example.juego_pug.models.Comida;
 import com.example.juego_pug.models.Hueso;
 import com.example.juego_pug.models.Perro;
 import com.example.juego_pug.models.Vector;
@@ -23,10 +24,14 @@ public class HelloController implements Observer{
 
     private Perro pug;
     private Hueso comida;
+
+    private Comida croqueta;
     @FXML
     private ImageView imgFood;
     @FXML
     private ImageView imgPug;
+    @FXML
+    private ImageView imgcomida;
     @FXML
     private Button btnEmpezar;
     @FXML
@@ -39,6 +44,13 @@ public class HelloController implements Observer{
         comida.set_position(new Vector(1,396,154));
         comida.addObserver(this);
         new Thread(comida).start();
+
+        mover = true;
+
+        croqueta = new Comida();
+        croqueta.set_position(new Vector(1,396,154));
+        croqueta.addObserver(this);
+        new Thread(croqueta).start();
 
         mover = true;
 
@@ -103,6 +115,7 @@ public class HelloController implements Observer{
 
         random = new Random(System.currentTimeMillis());
         Vector vector = (Vector) arg;
+
         if(imgPug.getBoundsInParent().intersects(imgFood.getBoundsInParent())){
             System.out.println("Pug comio su huesito");
 
@@ -121,7 +134,24 @@ public class HelloController implements Observer{
             }
         }
 
+        if(imgPug.getBoundsInParent().intersects(imgcomida.getBoundsInParent())){
+            System.out.println("Pug comio su croqueta");
 
+            this.croqueta.setEstado(false);
+            this.imgcomida.setVisible(false);
 
+            if (!croqueta.isEstado()){
+                int vecX = random.nextInt(622);
+                int vecY = random.nextInt(318);
+
+                this.croqueta.setEstado(true);
+                croqueta.set_position(new Vector(1,vecX,vecY));
+                this.imgcomida.setVisible(true);
+                imgcomida.setLayoutX(vecX);
+                imgcomida.setLayoutY(vecY);
+            }
         }
+
+
+    }
 }
